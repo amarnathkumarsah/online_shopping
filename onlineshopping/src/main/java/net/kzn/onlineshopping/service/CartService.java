@@ -133,15 +133,18 @@ public class CartService {
 		String response = "result=success";
 		boolean changed = false;
 		Product product = null;
+		
 		for(CartLine cartLine : cartLines) {					
 			product = cartLine.getProduct();
 			changed = false;
+		
 			// check if the product is active or not
 			// if it is not active make the availability of cartLine as false
 			if((!product.isActive() && product.getQuantity() == 0) && cartLine.isAvailable()) {
 				cartLine.setAvailable(false);
 				changed = true;
 			}			
+			
 			// check if the cartLine is not available
 			// check whether the product is active and has at least one quantity available
 			if((product.isActive() && product.getQuantity() > 0) && !(cartLine.isAvailable())) {

@@ -93,6 +93,7 @@ public class CartController {
 			return "redirect:/cart/show?"+response;
 		}
 		else {
+			//starting check out flow.  
 			return "redirect:/cart/checkout";
 		}
 	}	
